@@ -28,7 +28,7 @@ chatbot = None
 @app.route('/', methods=['GET', 'POST'])
 def index():
 	#Show Documentation for the API
-	markdown_file = open('../README.md', 'r')
+	markdown_file = open('README.md', 'r')
 	content = markdown_file.read()
 	# Convert to HTML
 	return markdown.markdown(content), 200
