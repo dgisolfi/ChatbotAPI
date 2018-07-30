@@ -47,7 +47,7 @@ All responses to the GroupMe API will have the form
 
 ### Methods
 
-####*Retrieve Login page to the API*
+#### *Retrieve the API help page*
 
 **Definition**
 
@@ -55,27 +55,7 @@ All responses to the GroupMe API will have the form
 
 **Response**
 
-`200 OK` on success
-
-####*Retrieve the API help page*
-
-**Definition**
-
-`GET /apiHelp`
-
-**Response**
-
-`200 OK` on success
-
-####*Retrieve Web Interface for API*
-
-**Definition**
-
-`GET /webUI`
-
-**Response**
-
-`200 OK` on success
+* 200 OK on success
 
 #### *Register a bot with the API*
 
@@ -85,8 +65,8 @@ All responses to the GroupMe API will have the form
 
 **Response**
 
-* 201: created successfully
-* 206: missing arguments for creation
+- 201: created successfully
+- 206: missing arguments for creation
 
 ```json
 {
@@ -94,7 +74,7 @@ All responses to the GroupMe API will have the form
     "data": {
         "bot_name": "Gary",
         "bot_id": "12djioadsf8",
-        "group_id": 234565234
+        "group_id": 234565234,
         "api_token": "sdlkf88yfas8fa9sy9as8y9xvs09d"
     }
 }
@@ -104,7 +84,7 @@ All responses to the GroupMe API will have the form
 
 **Definition**
 
-`GET /viewbot`
+`GET /viewBots`
 
 **Response**
 
@@ -117,7 +97,7 @@ All responses to the GroupMe API will have the form
     "data": {
         "bot_name": "Gary",
         "bot_id": "12djioadsf8",
-        "group_id": 234565234
+        "group_id": 234565234,
         "api_token": "sdlkf88yfas8fa9sy9as8y9xvs09d"
     }
 }
@@ -176,7 +156,6 @@ All responses to the GroupMe API will have the form
           "text": "Hello!", 
           "user_id": "600556"
         }, 
-       }
       ]
     }
   }, 

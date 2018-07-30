@@ -9,7 +9,7 @@ import os
 import json
 import markdown
 import requests
-from src.bot_class import Bot
+from bot_class import Bot
 from flask_restful import Resource, Api, reqparse
 from flask import Flask, render_template, redirect, url_for, request, jsonify
  
@@ -26,30 +26,14 @@ chatbot = None
 
 
 @app.route('/', methods=['GET', 'POST'])
-def login():
-	error = None
-	if request.method == 'POST':
-		if request.form['username'] != 'admin' or request.form['password'] != 'marty':
-			error = 'Invalid Credentials. Please try again.'
-		else:
-			return redirect(url_for('index'))
-	else:
-		return render_template('login.html', error=error)
-
-@app.route('/apiHelp', methods=['GET'])
 def index():
 	#Show Documentation for the API
-	markdown_file = open('README.md', 'r')
+	markdown_file = open('../README.md', 'r')
 	content = markdown_file.read()
 	# Convert to HTML
 	return markdown.markdown(content), 200
 
-@app.route('/webUI', methods=['GET', 'POST'])
-def webUI():
-	return render_template('WebUI.html'), 200
-
-
-@app.route('/registerBot', methods=['GET', 'POST'])
+@app.route('/registerBot', methods=['POST'])
 def registerBot():
     data = request.data
     botArgs = json.loads(data)
@@ -66,7 +50,7 @@ def registerBot():
     else:
         return jsonify({'message': 'Bot NOT registered; missing arg(s)', 'data': botArgs}), 206
 
-@app.route('/viewBot', methods=['GET'])
+@app.route('/viewBots', methods=['GET'])
 def getBot():
 	try:
 		return jsonify(
@@ -113,7 +97,7 @@ def getMsg():
 		return jsonify({'message':'Message Request Successful', 'data': messages}), 200	
 
 	except:
-		return jsonify({'message':'Message Request Not Successful', 'data': messages}), 404
+		return jsonify({'message':'Message Request Not Successful', 'data': None}), 404
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=apiPort, debug=True)
+	app.run(host='0.0.0.0', port=apiPort)
