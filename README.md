@@ -8,7 +8,7 @@ This ChatBot API is used to send, receive, and interact with GroupMe Bots. A Gro
 
 ## Docker Implementation
 
-The API takes advantage of a docker container and is run using the image pulled from docker hub. The image for this honeypot can be found [here](https://hub.docker.com/r/dgisolfi/chatbot_api/). The Dockerfile found in the root directory of this repository is used to create the chatbot_api image. The Docker file does the following:
+The API takes advantage of a docker container and is run using the image pulled from docker hub. The image for this API can be found [here](https://hub.docker.com/r/dgisolfi/chatbot_api/). The Dockerfile found in the root directory of this repository is used to create the chatbot_api image. The Docker file does the following:
 
 1. pull the latest version of Ubuntu from docker hub
 2. install the following: python-pip, python-dev, build-essential
